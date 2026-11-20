@@ -1,0 +1,58 @@
+//// Pooka sample used by the editor highlighter checks.
+
+module demo
+
+import pooka/http.{Request, Response}
+import pooka/otp as otp
+
+/// A tiny server used to exercise every capture in the highlighting queries.
+class Server {
+  let name: String = "example"
+  var port: Int = 8080
+
+  new(port: Int) {
+    assert port > 0
+  }
+
+  be handle(request: Request) -> Response {
+    match request.method {
+      "GET" -> Response(200, "ok")
+      _ -> Response(404, "missing")
+    }
+  }
+}
+
+actor Worker with lifecycle {
+  be start() {
+    loop {
+      echo "tick"
+      match True {
+        True -> { break }
+        False -> continue
+      }
+    }
+  }
+}
+
+interface Store {
+  get(key: String) -> String
+}
+
+enum Status { Ok, Error }
+
+class Point(x: Int, y: Int)
+
+sum(values: Int) -> Int {
+  values |> echo
+  0
+}
+
+test skip "highlighting" {
+  let tuple = #(1, 2)
+  let list = [1, 2, 3]
+  let bits = <<1:8-unsigned, 2:int>>
+  let status = Status.Ok
+  assert tuple == #(1, 2) as "tuple equality"
+  panic as "not implemented"
+  todo
+}

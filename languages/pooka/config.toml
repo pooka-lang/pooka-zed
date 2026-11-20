@@ -1,0 +1,16 @@
+name = "Pooka"
+grammar = "pooka"
+path_suffixes = ["pooka", "spec.pooka"]
+line_comments = ["// "]
+tab_size = 2
+hard_tabs = false
+word_characters = ["_"]
+autoclose_before = ";:.,=}])>\n\t "
+
+brackets = [
+  { start = "{", end = "}", close = true, newline = true, not_in = ["string", "comment"] },
+  { start = "[", end = "]", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = "(", end = ")", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = "<<", end = ">>", close = true, newline = false, not_in = ["string", "comment"] },
+  { start = '"', end = '"', close = true, newline = false, not_in = ["string", "comment"] },
+]
