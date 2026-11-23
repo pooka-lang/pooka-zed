@@ -3,7 +3,7 @@ name = "Pooka"
 version = "0.1.0"
 schema_version = 1
 authors = ["Pooka contributors"]
-description = "Pooka syntax highlighting, indentation, brackets and outlines"
+description = "🦌 A little Pooka in Zed: highlighting, outlines and tidy brackets."
 repository = "https://github.com/pooka-lang/pooka-zed"
 
 [grammars.pooka]
