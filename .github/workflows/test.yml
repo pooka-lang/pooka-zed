@@ -12,3 +12,5 @@ jobs:
           node-version: "22"
       - run: npm install --global tree-sitter-cli@0.26.8
       - run: python3 build.py --check
+      - run: rustup target add wasm32-wasip1
+      - run: cargo build --locked --target wasm32-wasip1

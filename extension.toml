@@ -9,3 +9,7 @@ repository = "https://github.com/pooka-lang/pooka-zed"
 [grammars.pooka]
 repository = "https://github.com/pooka-lang/tree-sitter-pooka"
 rev = "d7412722bdb1f60d34ebdd30426bdd613bbb41ba"
+
+[language_servers.pooka]
+name = "Pooka"
+languages = ["Pooka"]

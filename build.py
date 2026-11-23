@@ -97,12 +97,14 @@ def main():
     run(clang, '-fPIC', '-shared', '-Os', '-Wl,--export=tree_sitter_pooka',
         '-Wl,--max-memory=4294967296', '-I', grammar / 'src', grammar / 'src/parser.c',
         '-o', stage / 'grammars/pooka.wasm')
+    run('cargo', 'build', '--locked', '--release', '--target', 'wasm32-wasip1',
+        '--target-dir', HERE / '.build/rust', cwd=HERE)
+    shutil.copy2(HERE / '.build/rust/wasm32-wasip1/release/pooka_zed_local.wasm',
+                 stage / 'extension.wasm')
     for name in ['languages', 'icon_themes', 'icons']:
         shutil.copytree(HERE / name, stage / name)
     for name in ['extension.toml', 'LICENSE', 'README.md']:
         shutil.copy2(HERE / name, stage / name)
-    (HERE / 'grammars').mkdir(exist_ok=True)
-    shutil.copy2(stage / 'grammars/pooka.wasm', HERE / 'grammars/pooka.wasm')
     print('Extension ready in dist/. Install this directory as a Zed dev extension.')
 
 
