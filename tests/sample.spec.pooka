@@ -56,3 +56,10 @@ test skip "highlighting" {
   panic as "not implemented"
   todo
 }
+
+command(args: List(String)) -> String {
+  match args {
+    ["check"] | ["generate"] -> "<!-- marker -->"
+    _ -> ""
+  }
+}
